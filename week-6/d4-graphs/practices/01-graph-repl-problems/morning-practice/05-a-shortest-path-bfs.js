@@ -9,6 +9,29 @@ const adjList = {
 
 function aShortestPath(start, end) {
   // Your code here
+  let queue = [];
+  let visited = new Set();
+
+  queue.push([start]);
+  visited.add(start);
+
+
+  while (queue.length) {
+    let currentPath = queue.shift();
+    let currentNode = currentPath[currentPath.length - 1];
+
+
+    //DO THE THING HERE
+    if (currentNode === end) return currentPath
+
+    adjList[currentNode].forEach(neighbor => {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push([...currentPath, neighbor]) // make a copy of the path by spreading it out.
+      }
+    })
+  }
+  return false;
 }
 
 console.log("First Test:");

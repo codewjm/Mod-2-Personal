@@ -1,18 +1,24 @@
-
 function bubbleSort(arr) {
+  let swapped = true;
 
-  // Iterate through the array
+  while (swapped) {
+    swapped = false;
 
-    // If the current value is greater than its neighbor to the right
-      // Swap those values
+    for (let i = 0; i < arr.length - 1; i++) {
 
-      // Do not move this console.log
-      console.log(arr.join(","));
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+        swapped = true;
+        console.log(arr.join(",")) // rewuired for mocha to pass - testing each loopr for sort patten.
+      }
 
-  // If you get to the end of the array and no swaps have occurred, return
-
-  // Otherwise, repeat from the beginning
-
+    }
+    if (!swapped) return arr; // not technically needed
+  }
+  return arr;
 }
 
+const arr = [3, 2, 0, 4, 1]
+bubbleSort(arr);
+console.log(bubbleSort(arr));
 module.exports = bubbleSort;

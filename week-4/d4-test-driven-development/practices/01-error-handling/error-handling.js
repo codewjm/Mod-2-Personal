@@ -6,6 +6,7 @@ function sum(array) {
   }
   return sum;
 }
+// the try-catch block is basically an "if no error, else error" system.
 
 let res = sum(null);
 console.log(res);
